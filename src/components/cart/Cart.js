@@ -24,7 +24,7 @@ const Cart = () => {
   return (
     <div className="flex flex-col justify-center items-center bg-slate-600 mt-2">
       {myCart.length === 0 ? (
-        <p>Your cart is empty</p>
+        <p className="text-4xl text-white">Your cart is empty</p>
       ) : (
         <Fragment>
           <h1 className="flex text-4xl text-gray-100">My Cart</h1>

@@ -18,7 +18,19 @@ const Main = (props) => {
         <Route
           path="/"
           element={
-            <p className="justify-center text-9xl text-green-600">ANASAYFA</p>
+            allProducts
+              .filter((item) => item.id % 4 === 0)
+              .map((product, i) => (
+                <Card
+                  key={i}
+                  id={product.id}
+                  img={product.images[0]}
+                  title={product.title}
+                  description={product.description}
+                  category={product.category}
+                  price={product.price}
+                />
+              ))
           }
         ></Route>
         <Route
