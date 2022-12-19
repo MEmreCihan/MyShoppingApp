@@ -4,6 +4,7 @@ import { Routes, Route } from "react-router-dom";
 import { getAllProducts } from "../../helper/api-helper";
 import Card from "../UI/Card";
 import Cart from "../cart/Cart";
+import FilteredProduct from "../cart/FilteredProduct";
 
 const Main = (props) => {
   const [allProducts, setAllProducts] = useState([]);
@@ -17,21 +18,19 @@ const Main = (props) => {
       <Routes>
         <Route
           path="/"
-          element={
-            allProducts
-              .filter((item) => item.id % 4 === 0)
-              .map((product, i) => (
-                <Card
-                  key={i}
-                  id={product.id}
-                  img={product.images[0]}
-                  title={product.title}
-                  description={product.description}
-                  category={product.category}
-                  price={product.price}
-                />
-              ))
-          }
+          element={allProducts
+            .filter((item) => item.id % 4 === 0)
+            .map((product, i) => (
+              <Card
+                key={i}
+                id={product.id}
+                img={product.images[0]}
+                title={product.title}
+                description={product.description}
+                category={product.category}
+                price={product.price}
+              />
+            ))}
         ></Route>
         <Route
           path="/products"
@@ -62,6 +61,7 @@ const Main = (props) => {
           ))}
         ></Route>
         <Route path="/my-cart" element={<Cart />}></Route>
+        <Route path="/filteredProducts" element={<FilteredProduct />}></Route>
       </Routes>
     </div>
   );

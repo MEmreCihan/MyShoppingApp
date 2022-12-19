@@ -12,12 +12,18 @@ function App() {
   const dispatch = useDispatch();
 
   const isAdded = useSelector((state) => state.toggleSlice.productIsAdded);
-  console.log(isAdded);
-  
-  if(isAdded){
+  const isOrdered = useSelector((state) => state.toggleSlice.productIsOrdered);
+
+  if (isAdded) {
     setTimeout(() => {
       dispatch(toggleActions.toggle(false));
-    },1000)
+    }, 1000);
+  }
+
+  if (isOrdered) {
+    setTimeout(() => {
+      dispatch(toggleActions.toggleOrder(false));
+    }, 1000);
   }
 
   const selectedProductsHandler = (x) => {
@@ -26,7 +32,8 @@ function App() {
 
   return (
     <Fragment>
-      {isAdded && <Modal />}
+      {isAdded && <Modal content={"Product Added"} />}
+      {isOrdered && <Modal content={"Order Received"} />}
       <div className="min-h-[100vh] grid grid-rows-[max-content_auto_max-content]">
         <Header onSelectedProducts={selectedProductsHandler} />
         <Main selectedProducts={productsByCategory} />

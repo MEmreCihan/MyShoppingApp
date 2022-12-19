@@ -5,8 +5,9 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation } from "swiper";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { MdAccountCircle } from "react-icons/md";
-import { BiSearchAlt } from "react-icons/bi";
 import { useSelector } from "react-redux";
+
+import SearchInput from "../UI/SearchInput";
 
 import "swiper/css";
 import "swiper/css/pagination";
@@ -28,20 +29,14 @@ const Header = (props) => {
   };
 
   return (
-    <header className="bg-orange-200 p-6 overflow-hidden">
-      <div className="flex  justify-between items-center">
+    <header className="bg-amber-400 p-7 overflow-hidden">
+      <div className="flex justify-between items-center mb-1">
         <span>
           <Link to={"/"}>
             <img alt="" src="/logo192.png" className="h-10" />
           </Link>
         </span>
-        <div className="flex gap-1 ">
-          <input
-            className="rounded-xl w-96 h-8 border-solid border-red-600"
-            placeholder="Search product or category"
-          />
-          <BiSearchAlt className="text-3xl text-slate-600" />
-        </div>
+        <SearchInput />
         <div className="flex gap-5">
           <div>
             <Link className="flex gap-1">
@@ -57,11 +52,10 @@ const Header = (props) => {
           </div>
         </div>
       </div>
-      {/* swipper (slides per view) kullan */}
       <Swiper
-        slidesPerView={5}
+        slidesPerView={3}
         spaceBetween={30}
-        slidesPerGroup={5}
+        slidesPerGroup={3}
         loop={false}
         loopFillGroupWithBlank={true}
         pagination={{

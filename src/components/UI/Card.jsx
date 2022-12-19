@@ -29,7 +29,7 @@ const Card = (props) => {
         <p>{props.description}</p>
         <div className="card-actions justify-end items-center">
           <h3 className="card-title ">{`$${props.price}`}</h3>
-          <button className="btn btn-primary" onClick={addToCartHandler}>
+          <button className="btn btn-warning hover:bg-amber-500" onClick={addToCartHandler}>
             Add to Cart
           </button>
         </div>

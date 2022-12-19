@@ -1,12 +1,12 @@
 import { Fragment } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { cartActions } from "../../store/cartSlice";
+import { toggleActions } from "../../store/toggleSlice";
 
 const Cart = () => {
   const myCart = useSelector((state) => state.cartSlice.products);
   const totalPrice = useSelector((state) => state.cartSlice.totalPrice);
   const dispatch = useDispatch();
-  console.log(myCart);
 
   const increaseProductHandler = (id, price) => {
     dispatch(
@@ -21,13 +21,17 @@ const Cart = () => {
     dispatch(cartActions.removeFromCart(id));
   };
 
+  const orderHandler = () => {
+    dispatch(toggleActions.toggleOrder(true));
+  }
+
   return (
-    <div className="flex flex-col justify-center items-center bg-slate-600 mt-2">
+    <div className="flex flex-col justify-center items-center bg-amber-400 mt-2">
       {myCart.length === 0 ? (
         <p className="text-4xl text-white">Your cart is empty</p>
       ) : (
         <Fragment>
-          <h1 className="flex text-4xl text-gray-100">My Cart</h1>
+          <h1 className="flex text-4xl text-black">My Cart</h1>
           <ul className="flex flex-wrap items-center justify-center">
             {myCart.map((item) => (
               <li key={item.id}>
@@ -46,13 +50,13 @@ const Cart = () => {
                       <h3 className="card-title ">{`$${item.price}`}</h3>
                       <p>{`(${item.amount})`}</p>
                       <button
-                        className="btn btn-primary"
+                        className="btn btn-warning hover:bg-amber-500"
                         onClick={() => removeProductHandler(item.id)}
                       >
                         -
                       </button>
                       <button
-                        className="btn btn-primary"
+                        className="btn btn-warning hover:bg-amber-500"
                         onClick={() => {
                           increaseProductHandler(item.id, item.price);
                         }}
@@ -67,7 +71,7 @@ const Cart = () => {
           </ul>
           <div className=" card-actions justify-around bg-white items-center m-2 rounded-lg ">
             <p className="text-2xl ">{`Total Price: $${totalPrice}`}</p>
-            <button className="btn btn-primary">Buy</button>
+            <button className="btn btn-warning m-2 hover:bg-amber-500" onClick={orderHandler}>Buy</button>
           </div>
         </Fragment>
       )}
