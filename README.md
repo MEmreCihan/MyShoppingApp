@@ -13,7 +13,7 @@ Router
 ### `Live link`
 
 Runs the app in the development mode.\
-Open [http://localhost:3000](My Shopping App) to view it in your browser.
+Open [https://MEmreCihan.github.io/MyShoppingApp](Shopping App) to view it in your browser.
 
 
 ### `Contact me`

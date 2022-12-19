@@ -17,7 +17,7 @@ const Main = (props) => {
     <div className="bg-gray-100 flex flex-wrap items-center justify-center">
       <Routes>
         <Route
-          path="/"
+          path="/MyShoppingApp/"
           element={allProducts
             .filter((item) => item.id % 4 === 0)
             .map((product, i) => (
