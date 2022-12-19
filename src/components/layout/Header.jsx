@@ -32,7 +32,7 @@ const Header = (props) => {
     <header className="bg-amber-400 p-7 overflow-hidden">
       <div className="flex justify-between items-center mb-1">
         <span>
-          <Link to={"/"}>
+          <Link to={"/MyShoppingApp/"}>
             <img alt="" src="/logo192.png" className="h-10" />
           </Link>
         </span>
