@@ -39,14 +39,14 @@ const Header = (props) => {
         <SearchInput />
         <div className="flex gap-5">
           <div>
-            <Link className="flex gap-1">
+            <Link className="flex gap-1 font-semibold text-lg items-center">
               <MdAccountCircle className="text-2xl"></MdAccountCircle>My account
             </Link>
           </div>
           <div>
-            <Link to={"/my-cart"} className="flex gap-1">
+            <Link to={"/my-cart"} className="flex gap-1 font-semibold text-lg items-center">
               <AiOutlineShoppingCart className="text-2xl"></AiOutlineShoppingCart>
-              <span>{totalAmount}</span>
+              <span>{`(${totalAmount})`}</span>
               My cart
             </Link>
           </div>
@@ -66,10 +66,11 @@ const Header = (props) => {
         className="mySwiper"
       >
         {categories.map((x, i) => (
-          <SwiperSlide key={i}>
+          <SwiperSlide key={i} className="rounded-md text-xl font-semibold">
             <Link
               onClick={() => showProductsOfCategory(x)}
               to={`/products:${x}`}
+              className="first-letter:uppercase "
             >
               {x}
             </Link>

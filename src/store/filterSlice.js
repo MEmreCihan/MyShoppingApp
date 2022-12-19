@@ -3,11 +3,15 @@ import { createSlice } from "@reduxjs/toolkit";
 const filterSlice = createSlice({
     name:"filteredProducts",
     initialState: {
-        filteredProduct: []
+        filteredProduct: [],
+        hasProduct: true
     },
     reducers: {
         filter(state, action) {
             state.filteredProduct = action.payload
+        },
+        setproduct(state, action) {
+            state.hasProduct = action.payload
         }
     }
 })

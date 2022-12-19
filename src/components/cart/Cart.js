@@ -23,14 +23,15 @@ const Cart = () => {
 
   const orderHandler = () => {
     dispatch(toggleActions.toggleOrder(true));
+    dispatch(cartActions.removeAllProducts())
   }
 
   return (
-    <div className="flex flex-col justify-center items-center bg-amber-400 mt-2">
-      {myCart.length === 0 ? (
-        <p className="text-4xl text-white">Your cart is empty</p>
+    <Fragment>
+    {myCart.length === 0 ? (
+      <p className="text-2xl font-sans font-semibold">Your cart is empty, add product.</p>
       ) : (
-        <Fragment>
+        <div className="flex flex-col justify-center items-center bg-amber-400 mt-2">
           <h1 className="flex text-4xl text-black">My Cart</h1>
           <ul className="flex flex-wrap items-center justify-center">
             {myCart.map((item) => (
@@ -73,9 +74,9 @@ const Cart = () => {
             <p className="text-2xl ">{`Total Price: $${totalPrice}`}</p>
             <button className="btn btn-warning m-2 hover:bg-amber-500" onClick={orderHandler}>Buy</button>
           </div>
-        </Fragment>
-      )}
     </div>
+      )}
+        </Fragment>
   );
 };
 
