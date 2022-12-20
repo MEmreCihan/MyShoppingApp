@@ -1,4 +1,4 @@
-import React from "react";
+import EmailSub from "../UI/EmailSub";
 
 const Footer = () => {
   return (
@@ -12,9 +12,7 @@ const Footer = () => {
       <div className="w-72 block text-left">
         <h1 className="text-lg font-medium mb-6">SUBSCRIBE</h1>
         <p>Get E-mail updates about our latest shop and special offers.</p>
-        <input placeholder="Enter your email here.." className="bg-transparent rounded-md"/>
-        <br></br>
-        <button className="text-lg font-semibold">Subscribe</button>
+        <EmailSub />
       </div>
     </div>
   );

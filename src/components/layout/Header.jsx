@@ -33,7 +33,7 @@ const Header = (props) => {
       <div className="flex justify-between items-center mb-1">
         <span>
           <Link to={"/MyShoppingApp/"}>
-            <img alt="" src="/logo192.png" className="h-10" />
+            <p className="h-10 font-semibold text-lg">Home</p>
           </Link>
         </span>
         <SearchInput />

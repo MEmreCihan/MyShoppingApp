@@ -5,6 +5,7 @@ const toggleSlice = createSlice({
   initialState: {
     productIsAdded: false,
     productIsOrdered: false,
+    userIsSub: false,
   },
   reducers: {
     toggle(state, action) {
@@ -12,6 +13,9 @@ const toggleSlice = createSlice({
     },
     toggleOrder(state, action) {
       state.productIsOrdered = action.payload;
+    },
+    toggleSub(state, action) {
+      state.userIsSub = action.payload;
     }
   },
 });

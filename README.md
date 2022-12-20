@@ -7,6 +7,7 @@ This project is an e-commerce app which u can search and order products in many 
 In this React project i used: \
 Tailwind.css \
 DummyJSON api service \
+Firebase-Realtime Database service \
 Redux \
 Router \
 

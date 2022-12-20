@@ -20,12 +20,12 @@ const Card = (props) => {
     );
   };
   return (
-    <div className="card card-compact w-64 bg-base-100 shadow-xl h-80 gap-2 m-4">
+    <div className="card card-compact w-64 bg-base-100 shadow-xl h-80 gap-2 mr-4">
       <figure>
         <img src={props.img} alt={props.category} className="h-20 mt-1" />
       </figure>
       <div className="card-body">
-        <h2 className="card-title">{props.title}</h2>
+        <h2 className="card-title first-letter:uppercase">{props.title}</h2>
         <p>{props.description}</p>
         <div className="card-actions justify-end items-center">
           <h3 className="card-title ">{`$${props.price}`}</h3>

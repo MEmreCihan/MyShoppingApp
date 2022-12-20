@@ -13,6 +13,7 @@ function App() {
 
   const isAdded = useSelector((state) => state.toggleSlice.productIsAdded);
   const isOrdered = useSelector((state) => state.toggleSlice.productIsOrdered);
+  const isSubscribe = useSelector((state) => state.toggleSlice.userIsSub);
 
   if (isAdded) {
     setTimeout(() => {
@@ -26,6 +27,12 @@ function App() {
     }, 1000);
   }
 
+  if (isSubscribe) {
+    setTimeout(() => {
+      dispatch(toggleActions.toggleSub(false));
+    }, 1000);
+  }
+
   const selectedProductsHandler = (x) => {
     setProductsByCategory(x);
   };
@@ -34,6 +41,7 @@ function App() {
     <Fragment>
       {isAdded && <Modal content={"Product Added"} />}
       {isOrdered && <Modal content={"Order Received"} />}
+      {isSubscribe && <Modal content={"Subscribed"} />}
       <div className="min-h-[100vh] grid grid-rows-[max-content_auto_max-content]">
         <Header onSelectedProducts={selectedProductsHandler} />
         <Main selectedProducts={productsByCategory} />
