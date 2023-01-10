@@ -23,13 +23,15 @@ const Cart = () => {
 
   const orderHandler = () => {
     dispatch(toggleActions.toggleOrder(true));
-    dispatch(cartActions.removeAllProducts())
-  }
+    dispatch(cartActions.removeAllProducts());
+  };
 
   return (
     <Fragment>
-    {myCart.length === 0 ? (
-      <p className="text-2xl font-sans font-semibold">Your cart is empty, add product.</p>
+      {myCart.length === 0 ? (
+        <p className="text-2xl font-sans font-semibold">
+          Your cart is empty, add product.
+        </p>
       ) : (
         <div className="flex flex-col justify-center items-center bg-amber-400 mt-2">
           <h1 className="flex text-4xl text-black">My Cart</h1>
@@ -47,23 +49,25 @@ const Cart = () => {
                   <div className="card-body">
                     <h2 className="card-title">{item.title}</h2>
                     <p>{item.description}</p>
-                    <div className="card-actions justify-end">
+                    <div className="card-actions justify-between items-center">
                       <h3 className="card-title ">{`$${item.price}`}</h3>
-                      <p>{`(${item.amount})`}</p>
-                      <button
-                        className="btn btn-warning hover:bg-amber-500"
-                        onClick={() => removeProductHandler(item.id)}
-                      >
-                        -
-                      </button>
-                      <button
-                        className="btn btn-warning hover:bg-amber-500"
-                        onClick={() => {
-                          increaseProductHandler(item.id, item.price);
-                        }}
-                      >
-                        +
-                      </button>
+                      <div className="flex gap-2 items-center justify-end">
+                        <button
+                          className="btn btn-warning hover:bg-amber-500"
+                          onClick={() => removeProductHandler(item.id)}
+                        >
+                          -
+                        </button>
+                        <p className="text-xl">{`(${item.amount})`}</p>
+                        <button
+                          className="btn btn-warning hover:bg-amber-500"
+                          onClick={() => {
+                            increaseProductHandler(item.id, item.price);
+                          }}
+                        >
+                          +
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -72,11 +76,16 @@ const Cart = () => {
           </ul>
           <div className=" card-actions justify-around bg-white items-center m-2 rounded-lg ">
             <p className="text-2xl ">{`Total Price: $${totalPrice}`}</p>
-            <button className="btn btn-warning m-2 hover:bg-amber-500" onClick={orderHandler}>Buy</button>
+            <button
+              className="btn btn-warning m-2 hover:bg-amber-500"
+              onClick={orderHandler}
+            >
+              Buy
+            </button>
           </div>
-    </div>
+        </div>
       )}
-        </Fragment>
+    </Fragment>
   );
 };
 
